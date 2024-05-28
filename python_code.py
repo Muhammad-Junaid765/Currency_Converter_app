@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-import plotly.express as px
 
 st.markdown('''# **Binance Price App**
 A simple cryptocurrency price app pulling price data from *Binance API*.
@@ -79,21 +78,15 @@ col3.metric(col9_selection, col9_price, col9_percent)
 st.subheader("The dataset of these currencies")
 
 overalldf=pd.concat([col1_df,col2_df,col3_df,col4_df,col5_df,col6_df,col7_df,col8_df,col9_df],axis=0)
-import plotly.express as px
 st.dataframe(overalldf)
-if st.button("graph"):
-  fig = px.scatter(
-    overalldf,
-    x='volume',
-    y='bidQty',
-    color="symbol"
-    )
-  fig.show()
+
 st.header('**All Price**')
 st.dataframe(df)
+
 st.header("About Developer")
 from PIL import Image
 st.image("myimage.jpeg",width=400)
+
 st.subheader("Muhammad Junaid")
 st.info('Credit: Created by Muhammad Junaid Data Scientist')
 
